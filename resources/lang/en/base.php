@@ -7,4 +7,5 @@ return [
     'create' => 'Create',
     'edit' => 'Edit',
     'profile' => 'Profile',
+    'files' => 'Files',
 ];

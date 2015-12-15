@@ -13,6 +13,7 @@ elixir(function (mix) {
         "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js",
         "bower_components/sweetalert/dist/sweetalert.min.js",
         "bower_components/moment/moment.js",
+        "bower_components/cropper/dist/cropper.js",
         "bower_components/bootstrap-daterangepicker/daterangepicker.js",
         "bower_components/data-ajax-content/jquery.ajax-content.js",
         "bower_components/jquery-form/jquery.form.js",
@@ -31,7 +32,7 @@ elixir(function (mix) {
     mix.scripts([
         "jquery/dist/jquery.js",
         "jquery.easing/js/jquery.easing.js",
-        "bootstrap-sass/assets/javascripts/bootstrap.js"
+        "bootstrap-sass-official/assets/javascripts/bootstrap.js"
     ], 'public/js/front/vendor.js', 'bower_components');
 
     mix.scripts([

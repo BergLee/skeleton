@@ -6,4 +6,5 @@ return [
     'users' => 'Usuários',
     'create' => 'Novo',
     'profile' => 'Meus dados',
+    'files' => 'Arquivos',
 ];
