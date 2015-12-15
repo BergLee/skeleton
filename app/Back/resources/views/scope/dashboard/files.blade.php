@@ -12,7 +12,9 @@
             <h3 class="panel-title">{{ trans('base.files') }}</h3>
         </div>
         <div class="panel-body">
-
+            <div class="img-container">
+                <img src="http://www.planwallpaper.com/static/images/kartandtinki1_photo-wallpapers_02.jpg" alt="Picture">
+            </div>
         </div>
     </div>
 @stop
