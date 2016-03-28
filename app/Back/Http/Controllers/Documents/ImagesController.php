@@ -10,6 +10,11 @@ use Redirect;
 
 class ImagesController extends BackController
 {
+    /**
+     * List of images
+     *
+     * @return mixed
+     */
     public function index()
     {
         $records = Image::paginate(9);
@@ -17,11 +22,22 @@ class ImagesController extends BackController
         return view('back::documents.images.index', compact('records'));
     }
 
+    /**
+     * Form to create a new image
+     *
+     * @return mixed
+     */
     public function create()
     {
         return view('back::documents.images.create');
     }
 
+    /**
+     * Persist image
+     *
+     * @param ImageRequest $request
+     * @return mixed
+     */
     public function store(ImageRequest $request)
     {
         $record = new Image();
@@ -42,9 +58,50 @@ class ImagesController extends BackController
     }
 
     /**
+     * Form to update image
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function edit($id)
+    {
+        $record = Image::find($id);
+
+        return view('back::documents.images.edit', compact('record'));
+    }
+
+    /**
+     * Update image data
+     *
+     * @param $id
+     * @param ImageRequest $request
+     * @return mixed
+     */
+    public function update($id, ImageRequest $request)
+    {
+        $record = Image::find($id);
+        $record->title = $request->get('title');
+        $record->tags = $request->get('tags');
+        $record->description = $request->get('description');
+
+        if ($request->file('image') && $request->file('image')->isValid()) {
+            $record->file = $this->uploadImage($request->file('image'), $record->file);
+        }
+
+        if ($record->save()) {
+            $this->addFlash(trans('back::dictionary.success'), 'success');
+
+            return Redirect::route('back.documents.images.index');
+        } else {
+            $this->addFlash(trans('back::dictionary.exception'), 'danger');
+
+            return Redirect::route('back.documents.images.create')->withInputs();
+        }
+    }
+
+    /**
      * @param UploadedFile $file
      * @return array|null|\Symfony\Component\HttpFoundation\File\UploadedFile
-     * @throws \RuntimeException
      */
     private function uploadImage(UploadedFile $file, $name = null)
     {
@@ -58,6 +115,6 @@ class ImagesController extends BackController
             }
         }
 
-        throw new \RuntimeException(_ucwords(trans('back::dictionary.exception')));
+        return false;
     }
 }

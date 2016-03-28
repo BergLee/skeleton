@@ -4,6 +4,9 @@ namespace App\Back\Http\Requests\Documents;
 
 use App\Back\Http\Requests\BackRequest;
 
+/**
+ * @property mixed images
+ */
 class ImageRequest extends BackRequest
 {
 
@@ -14,20 +17,23 @@ class ImageRequest extends BackRequest
      */
     public function rules()
     {
-        $rules = [
-            'image' => 'required|mimes:jpg,png,gif,svg,jpeg',
-            'title' => 'required',
-            'description' => 'required',
-        ];
-
         switch ($this->method()) {
+            case 'POST': {
+                return [
+                    'image' => 'required|mimes:jpg,png,gif,svg,jpeg',
+                    'title' => 'required|unique:images,title',
+                    'description' => 'required',
+                ];
+            }
             case 'PUT':
             case 'PATCH': {
-                $rules['title'] .= ",{$this->images}";
+                return [
+                    'title' => "required|unique:images,title,{$this->images}",
+                    'image' => 'mimes:jpg,png,gif,svg,jpeg',
+                    'description' => 'required',
+                ];
             }
         }
-
-        return $rules;
     }
 
     /**

@@ -9,6 +9,8 @@ return [
     'logout' => 'Sign out',
     'search' => 'Search',
     'image' => 'Image',
+    'crop' => 'Crop',
+    'download' => 'Download',
     'title' => 'Title',
     'main-menu' => 'MAIN NAVIGATION',
     'save' => 'Save',

@@ -33,10 +33,10 @@
                                 </p>
                             </div>
                             <div class="actions">
-                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> Edit</a>
-                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-crop"></i> Crop</a>
-                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-download"></i> Download</a>
-                                <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
+                                <a href="{{ route('back.documents.images.edit', ['id' => $record->id]) }}" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> {{ _ucwords(trans('back::dictionary.edit')) }}</a>
+                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-crop"></i> {{ _ucwords(trans('back::dictionary.crop')) }}</a>
+                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-download"></i> {{ _ucwords(trans('back::dictionary.download')) }}</a>
+                                <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> {{ _ucwords(trans('back::dictionary.delete')) }}</a>
                             </div>
                         </div>
                     @endforeach
