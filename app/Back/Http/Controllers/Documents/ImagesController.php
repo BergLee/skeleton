@@ -100,6 +100,19 @@ class ImagesController extends BackController
     }
 
     /**
+     * Form to update image
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getCrop($id)
+    {
+        $record = Image::find($id);
+
+        return view('back::documents.images.crop', compact('record'));
+    }
+
+    /**
      * @param UploadedFile $file
      * @return array|null|\Symfony\Component\HttpFoundation\File\UploadedFile
      */

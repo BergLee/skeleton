@@ -26,6 +26,8 @@ Route::group(['prefix' => 'profile', 'namespace' => 'Dashboard'], function () {
  */
 Route::group(['prefix' => 'documents', 'namespace' => 'Documents'], function () {
     Route::resource('images', 'ImagesController');
+    Route::get('images/{id}/crop', ['as' => 'back.documents.images.get.crop', 'uses' => 'ImagesController@getCrop']);
+    Route::post('images/{id}/crop', ['as' => 'back.documents.images.post.crop', 'uses' => 'ImagesController@postCrop']);
 });
 
 /**

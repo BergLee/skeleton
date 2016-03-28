@@ -1,5 +1,6 @@
 @import "../../../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../../../../../bower_components/font-awesome/scss/font-awesome";
+@import "../../../../../bower_components/cropper/src/scss/cropper";
 @import "../../../../../bower_components/AdminLTE/dist/css/AdminLTE";
 @import "../../../../../bower_components/AdminLTE/dist/css/skins/_all-skins";
 
@@ -10,3 +11,5 @@
 @import "components/login-actions";
 @import "components/grid-custom";
 @import "components/bootstrap-tagsinput";
+
+@import "pages/documents/images/cropper";
