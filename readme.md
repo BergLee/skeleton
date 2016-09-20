@@ -72,7 +72,7 @@ Put in .env
 MAINTENANCE_ALLOWED_IPS=999.999.999.999,888.888.888.888
 ```
 
-# Screenshots
+# Screenshot
 
 ## Front
 ![alt text](https://raw.githubusercontent.com/baconfy/skeleton/master/public/screenshots/skeleton-home.jpg "Home")
